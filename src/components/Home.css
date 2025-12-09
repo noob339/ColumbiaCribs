@@ -19,7 +19,7 @@
 
 .reviews-grid {
   display: flex;
-  flex-wrap: wrap;          /* allow wrapping */
+  flex-wrap: wrap;          
   gap: 1.5rem;
 }
 
@@ -33,7 +33,7 @@
   border: 1px solid #e5e7eb;
   display: flex;
   flex-direction: column;
-  flex: 1 1 100%;           /* default: full width (mobile) */
+  flex: 1 1 100%;           
   max-width: 100%;
 }
 
