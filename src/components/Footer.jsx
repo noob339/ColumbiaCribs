@@ -1,3 +1,4 @@
+import logo from "../assets/logo.svg";
 import "./Footer.css";
 
 function Footer() {
@@ -5,8 +6,10 @@ function Footer() {
     <footer className="footer">
       <div className="footer-content">
         <div className="footer-section">
-          <h4>Columbia Cribs</h4>
-          <p>Your trusted source for Columbia housing reviews</p>
+          <img src={logo} alt="Columbia Cribs Logo" />
+          <h1>
+            Columbia<span>Cribs</span>
+          </h1>
         </div>
         <div className="footer-section">
           <h4>Quick Links</h4>

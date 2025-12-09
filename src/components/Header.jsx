@@ -1,3 +1,4 @@
+import logo from "../assets/logo.svg";
 import { useState } from "react";
 import "./Header.css";
 import { IoSearchOutline } from "react-icons/io5";
@@ -13,7 +14,7 @@ function Header() {
     <div className="header">
       <div className="navBar">
         <div className="logo">
-          <img src="/logo.svg" alt="Columbia Cribs Logo" />
+          <img src={logo} alt="Columbia Cribs Logo" />
           <h1>
             Columbia<span>Cribs</span>
           </h1>
