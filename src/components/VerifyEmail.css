@@ -1,0 +1,47 @@
+.verify-container {
+  display: flex;
+  justify-content: center;
+  padding: 3rem;
+}
+
+.verify-card {
+  background: white;
+  padding: 2rem 3rem;
+  border-radius: 12px;
+  border: 2px solid #c9dffe;
+  text-align: center;
+  max-width: 500px;
+}
+
+.verify-card h2 {
+  font-size: 28px;
+  color: #1c2d4e;
+  margin-bottom: 10px;
+}
+
+.verify-card p {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 20px;
+}
+
+.verify-card input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+}
+
+.verify-card button {
+  margin-top: 20px;
+  background-color: #1c2d4e;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+}

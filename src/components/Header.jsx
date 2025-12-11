@@ -2,12 +2,19 @@ import logo from "../assets/logo.svg";
 import { useState } from "react";
 import "./Header.css";
 import { IoSearchOutline } from "react-icons/io5";
+import { Link, useNavigate } from "react-router-dom";
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const goToReviewFlow = () => {
+    navigate("/review");
+    setIsMenuOpen(false);
   };
 
   return (
@@ -31,9 +38,9 @@ function Header() {
       {/* Dropdown Menu */}
       <div className={`dropdown-menu ${isMenuOpen ? "show" : ""}`}>
         <nav className="menu-nav">
-          <a href="#home" className="menu-item">
+          <Link to="/" className="menu-item">
             Home
-          </a>
+          </Link>
           <a href="#buildings" className="menu-item">
             Buildings
           </a>
@@ -48,7 +55,7 @@ function Header() {
           </a>
         </nav>
         <div className="menu-footer">
-          <button className="btnReview" type="submit">
+          <button className="btnReview" type="button" onClick={goToReviewFlow}>
             Review
           </button>
         </div>
@@ -60,7 +67,7 @@ function Header() {
             <input type="text" placeholder="Search a building..." />
             <IoSearchOutline className="searchIcon" />
           </form>
-          <button className="btnReview" type="submit">
+          <button className="btnReview" type="button" onClick={goToReviewFlow}>
             Review
           </button>
         </div>
