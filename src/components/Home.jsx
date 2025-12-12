@@ -9,7 +9,6 @@ import BroadwayHallImg from "../assets/broadwayHall.jpg";
 import HartleyHallImg from "../assets/HartleyHall.jpg";
 
 function Home() {
-  // This is the JSON we;ll later fetch from the DB
   const reviews = [
     {
       id: 1,
@@ -76,39 +75,45 @@ function Home() {
 
   return (
     <div className="home">
-      {/* Most Recent Reviews – Figma-style cards */}
       <section className="reviews-section">
         <h3 className="reviews-heading">Most Recent Reviews</h3>
-        <div className="grid reviews-grid">
+        <div className="reviews-grid">
           {reviews.map((review) => (
             <article
               key={review.id}
-              className={`review-card ${
-                review.featured ? "review-card--featured" : ""
+              className={`recent-review-card ${
+                review.featured ? "recent-review-card--featured" : ""
               }`}
             >
-              {/* use the building image */}
               <div
-                className="review-image"
+                className="recent-review-image"
                 style={{ backgroundImage: `url(${review.image})` }}
               />
 
-              <div className="review-body">
-                <div className="review-main">
-                  <h4 className="review-title">{review.title}</h4>
-                  <p className="review-building">{review.buildingName}</p>
-                  <p className="review-date">{review.date}</p>
-                  <p className="review-text">{review.text}</p>
+              <div className="recent-review-body">
+                <div className="recent-review-main">
+                  <h4 className="recent-review-title">{review.title}</h4>
+                  <p className="recent-review-building">
+                    {review.buildingName}
+                  </p>
+                  <p className="recent-review-date">{review.date}</p>
+                  <p className="recent-review-text">{review.text}</p>
                 </div>
 
-                <div className="review-votes">
-                  <div className="vote-row">
-                    <span className="vote-count">{review.upvotes}</span>
-                    <span className="vote-arrow vote-arrow--up">▲</span>
+                <div className="recent-review-votes">
+                  <div className="recent-vote-row">
+                    <span className="recent-vote-count">{review.upvotes}</span>
+                    <span className="recent-vote-arrow recent-vote-arrow--up">
+                      ▲
+                    </span>
                   </div>
-                  <div className="vote-row">
-                    <span className="vote-count">{review.downvotes}</span>
-                    <span className="vote-arrow vote-arrow--down">▼</span>
+                  <div className="recent-vote-row">
+                    <span className="recent-vote-count">
+                      {review.downvotes}
+                    </span>
+                    <span className="recent-vote-arrow recent-vote-arrow--down">
+                      ▼
+                    </span>
                   </div>
                 </div>
               </div>
