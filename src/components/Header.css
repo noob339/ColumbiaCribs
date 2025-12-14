@@ -1,8 +1,8 @@
 /* Header Styles */
 .header {
-  background: linear-gradient(135deg, #1C2D4E 60%, #80C6E9 100%);
+  background: #1C2D4E;
   color: white;
-  padding: 0rem 2rem 4rem 4rem;
+  padding: 3rem 4rem 5rem 5rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   position: relative;
 }
@@ -11,8 +11,8 @@
 .navBar {
   display: flex;
   justify-content: space-between;
+  padding-bottom: 15px;
   align-items: center;
-  
 }
 
 .logo {
@@ -47,8 +47,8 @@
 }
 
 .hamburger-icon {
-  width: 30px;
-  height: 24px;
+  width: 45px;
+  height: 30px;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -58,8 +58,8 @@
 .hamburger-icon span {
   display: block;
   width: 100%;
-  height: 3px;
-  background-color: white;
+  height: 6px;
+  background-color: #80C6E9;
   border-radius: 3px;
   transition: all 0.3s ease;
 }
@@ -136,6 +136,7 @@
 }
 
 .searchBar {
+  height: 55px;
   display: flex;
   width: 100%;
   max-width: 100%;
@@ -168,10 +169,11 @@
 
 .searchIcon{
  color: black;
- font-size: 50px;
+ font-size: 40px;
+ padding-right: 15px;
 }
 .btnReview {
-  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  background: linear-gradient(135deg, #fb7d24 0%, #f5940b 100%);
   color: white;
   padding: 0.75rem 2rem;
   border-radius: 50px;
@@ -181,8 +183,9 @@
 }
 
 .btnReview:hover {
-  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  background: linear-gradient(135deg, #f5b70b 0%, #d97706 100%);
   box-shadow: 0 4px 12px rgba(251, 191, 36, 0.4);
+  cursor: pointer;
 }
 
 /* Responsive */
