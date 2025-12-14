@@ -41,9 +41,9 @@ function Header() {
           <Link to="/" className="menu-item">
             Home
           </Link>
-          <a href="#buildings" className="menu-item">
+          <Link to="/BuildingPage" className="menu-item">
             Buildings
-          </a>
+          </Link>
           <a href="#reviews" className="menu-item">
             Reviews
           </a>

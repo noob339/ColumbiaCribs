@@ -108,11 +108,11 @@ function Home() {
                     </span>
                   </div>
                   <div className="recent-vote-row">
-                    <span className="recent-vote-count">
-                      {review.downvotes}
-                    </span>
                     <span className="recent-vote-arrow recent-vote-arrow--down">
                       ▼
+                    </span>
+                    <span className="recent-vote-count">
+                      {review.downvotes}
                     </span>
                   </div>
                 </div>
