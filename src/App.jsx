@@ -5,7 +5,7 @@ import Home from "./pages/Home.jsx"
 
 import ReviewPage from "./pages/ReviewPage.jsx";
 import VerifyEmail from "./pages/VerifyEmail.jsx";
-import EnterCode from "./components/EnterCode.jsx";
+import EnterCode from "./pages/EnterCode.jsx";
 import Success from "./pages/Success.jsx";
 
 import { Routes, Route } from "react-router-dom";
