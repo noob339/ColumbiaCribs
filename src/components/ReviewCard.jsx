@@ -25,7 +25,7 @@ function ReviewCard() {
               <span className="vote-arrow vote-arrow--down">▼</span>
               <span className="vote-count">12</span>
             </div>
-          </div>
+        </div>
       </div>
       <div className='review-info'>
         <span className="tag">Single</span>

@@ -1,0 +1,91 @@
+.ratings-card {
+    background: #f5f5f5;
+    border-radius: 12px;
+    padding: 40px;
+    max-width: 1203px;
+    margin: 0 auto;
+  }
+  
+  .RatingsCard-Title{
+    padding-top: 10px;
+    text-align: center;
+    font-size: 40px;
+    color: #2c3e5f;
+  }
+
+  .average-ratings {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 1203px;
+    margin: 40px auto;
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+  }
+  
+  .average-rating-row {
+    display: grid;
+    grid-template-columns: 180px 1fr 60px;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .average-rating-label {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1a1a1a;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .chevron {
+    color: #1a1a1a;
+    font-size: 20px;
+  }
+  
+  .average-bar {
+    height: 40px;
+    background: #b8d4f1;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .average-fill {
+    height: 100%;
+    background: #2c3e5f;
+    border-radius: 20px;
+    transition: width 0.3s ease;
+  }
+  
+  .average-score {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1a1a1a;
+    text-align: right;
+  }
+  
+  @media (max-width: 768px) {
+    .ratings-card {
+      padding: 20px;
+    }
+    
+    .average-rating-row {
+      grid-template-columns: 140px 1fr 50px;
+      gap: 12px;
+    }
+    
+    .average-rating-label {
+      font-size: 16px;
+    }
+    
+    .average-bar {
+      height: 32px;
+    }
+    
+    .average-score {
+      font-size: 18px;
+    }
+  }
