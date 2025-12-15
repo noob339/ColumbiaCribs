@@ -1,0 +1,11 @@
+.BuildingPage{
+    padding: 35px;
+    background-color: #e6e6e6;
+}
+.BuildingPage > h1{
+    background-color: #324B82;
+    color: #e6e6e6;
+    padding: 15px;
+    border-radius: 16px;
+    text-align: center;
+}

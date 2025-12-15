@@ -4,6 +4,7 @@
     max-width: 1100px;
     display: flex;
     margin: auto;
+    margin-bottom: 30px;
 }
 
 .building-left {
