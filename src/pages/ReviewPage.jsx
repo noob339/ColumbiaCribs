@@ -65,7 +65,7 @@ function ReviewPage() {
 
   return (
     <main className="review-page">
-      <section className="review-card">
+      <section className="review-card-page">
         {/* LEFT: Form */}
         <div className="review-left">
           <h2 className="review-title">Submit Review</h2>
