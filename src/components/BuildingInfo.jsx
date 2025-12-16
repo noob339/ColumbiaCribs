@@ -1,42 +1,88 @@
-import React from 'react'
-import Broadway from '../assets/broadwayHall.jpg'
-import './BuildingInfo.css';
-import { Link, useNavigate } from "react-router-dom";
+import React from "react";
+import { buildingImages } from "../data/buildingImages";
+import fallbackImg from "../assets/lowLibrary.jpg"; //placeholder in case it goes kaputz
+import "./BuildingInfo.css";
+import { useNavigate, useParams } from "react-router-dom";
+import buildings from "../data/buildings";
 
 function BuildingInfo() {
     const navigate = useNavigate();
+    const { slug } = useParams();
+
+    const building = buildings.find((b) => b.slug === slug);
+    const imgSrc = buildingImages[building.slug] ?? fallbackImg;
+
     const goToReviewFlow = () => {
-        navigate("/review");
-        setIsMenuOpen(false);
+        navigate(`/review?building=${slug ?? ""}`);
     };
-    return (
-        <div className="building-card">
-            <div className="building-left">
-                <h1>Broadway Hall</h1>
-                <img
-                src={Broadway}
-                alt="Broadway Hall"
-                />
-                <p className="address">
-                West 114th Street and Broadway, New York, NY, 10027
-                </p>
-                <div className="pagination">1 / 7</div>
+
+    //for unknown path
+    if (!building) {
+        return (
+            <div className='building-card'>
+                <div className='building-left'>
+                    <h1>Building not found</h1>
+                    <p className='address'>
+                        Try searching for a building from the header.
+                    </p>
+                </div>
             </div>
-                
-            <div className="building-right">
+        );
+    }
+
+    //name missing then address is the tile
+    const title =
+        building.name && building.name.trim().length > 0
+            ? building.name
+            : building.address;
+
+    return (
+        <div className='building-card'>
+            <div className='building-left'>
+                <h1>{title}</h1>
+
+                <img src={imgSrc} alt={title || "Building"} />
+
+                {building.address && (
+                    <p className='address'>{building.address}</p>
+                )}
+
+                {/* may just load more in the future once db is set and normalized */}
+                <div className='pagination'>
+                    {buildings.findIndex((b) => b.slug === slug) + 1} /{" "}
+                    {buildings.length}
+                </div>
+            </div>
+
+            <div className='building-right'>
                 <h2>Residence Information</h2>
+
                 <ul>
-                    <li>11 Floors</li>
-                    <li>310 Singles</li>
-                    <li>Seasonal AC</li>
-                    <li>3 Elevators</li>
-                    <li>Shared bathroom</li>
-                    <li>Soph 1% · Jr 51% · Sr 38%</li>
+                    {building.floors != null && (
+                        <li>{building.floors} Floors</li>
+                    )}
+                    {building.singlesCapacity != null && (
+                        <li>{building.singlesCapacity} Singles</li>
+                    )}
+                    {building.doublesCapacity != null && (
+                        <li>{building.doublesCapacity} Doubles</li>
+                    )}
+                    {building.airConditioner && (
+                        <li>{building.airConditioner} AC</li>
+                    )}
+                    {building.elevators && (
+                        <li>{building.elevators} Elevators</li>
+                    )}
+                    {building.bathroomType && <li>{building.bathroomType}</li>}
+                    {building.classMix && <li>{building.classMix}</li>}
                 </ul>
-                <button className="review-btn" onClick={goToReviewFlow}>Write a review</button>
+
+                <button className='review-btn' onClick={goToReviewFlow}>
+                    Write a review
+                </button>
             </div>
         </div>
-        );
+    );
 }
 
-export default BuildingInfo
+export default BuildingInfo;
