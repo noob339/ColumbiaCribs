@@ -1,8 +1,14 @@
 import React from 'react'
 import Broadway from '../assets/broadwayHall.jpg'
 import './BuildingInfo.css';
+import { Link, useNavigate } from "react-router-dom";
 
 function BuildingInfo() {
+    const navigate = useNavigate();
+    const goToReviewFlow = () => {
+        navigate("/review");
+        setIsMenuOpen(false);
+    };
     return (
         <div className="building-card">
             <div className="building-left">
@@ -27,7 +33,7 @@ function BuildingInfo() {
                     <li>Shared bathroom</li>
                     <li>Soph 1% · Jr 51% · Sr 38%</li>
                 </ul>
-                <button className="review-btn">Write a review</button>
+                <button className="review-btn" onClick={goToReviewFlow}>Write a review</button>
             </div>
         </div>
         );
