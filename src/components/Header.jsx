@@ -2,13 +2,15 @@ import logo from "../assets/logo.svg";
 import { useState } from "react";
 import "./Header.css";
 import { IoSearchOutline } from "react-icons/io5";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import Select from "react-select";
 import buildings from "../data/buildings";
 
 function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [selected, setSelected] = useState(null);
+
+    const location = useLocation();
 
     const navigate = useNavigate();
 
@@ -17,7 +19,15 @@ function Header() {
     };
 
     const goToReviewFlow = () => {
-        navigate("/review");
+        const match = location.pathname.match(/^\/buildings\/([^/]+)$/);
+        const currentSlug = match?.[1];
+
+        if (currentSlug) {
+            navigate(`/review?building=${currentSlug}`);
+        } else {
+            navigate("/review");
+        }
+
         setIsMenuOpen(false);
     };
 
