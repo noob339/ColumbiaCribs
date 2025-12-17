@@ -65,17 +65,14 @@ function Header() {
                     <Link to='/' className='menu-item'>
                         Home
                     </Link>
-                    <Link to='/BuildingPage' className='menu-item'>
-                        Buildings
-                    </Link>
-                    <a href='#reviews' className='menu-item'>
-                        Reviews
+                    <a href='#mission' className='menu-item'>
+                        Our Mission
                     </a>
-                    <a href='#about' className='menu-item'>
-                        About
+                    <a href='#FAQ' className='menu-item'>
+                        FAQs
                     </a>
                     <a href='#contact' className='menu-item'>
-                        Contact
+                        Contact Us
                     </a>
                 </nav>
                 <div className='menu-footer'>
