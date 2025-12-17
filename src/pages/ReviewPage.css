@@ -2,19 +2,16 @@
     /* light grey background section spanning full screen */
     background-color: #f3f4f6;
     padding: 2rem 2rem 4rem;
-}
+} /* white card that basically fills the section */
 
-/* white card that basically fills the section */
 .review-card-page {
     background-color: #ffffff;
     border-radius: 16px;
     border: 2px solid #89b5e6;
     padding: 2rem;
-
     display: grid;
     grid-template-columns: minmax(0, 2fr) minmax(0, 1.5fr);
     gap: 2rem;
-
     width: 100%;
     max-width: 1300px;
     margin: 0 auto;
@@ -117,27 +114,47 @@
     border: 1px solid #e5e7eb;
     background-color: #f9fafb;
     display: flex;
+}
+
+.review-page .review-right .building-card {
+    padding: 1.5rem;
+    border-radius: 16px;
+    border: 1px solid #e5e7eb;
+    background-color: #f9fafb;
+    display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 0.25rem;
 }
 
+.review-page .review-right .building-name {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1c2d4e;
+    margin: 0;
+}
+
+.review-page .review-right .building-location {
+    font-size: 1rem;
+    color: #6b7280;
+    margin: 0 0 2rem 0;
+}
+/*
 .building-name {
     font-size: 2rem;
     font-weight: 700;
     color: #1c2d4e;
 }
-
 .building-location {
     font-size: 1rem;
     color: #6b7280;
     margin-bottom: 2rem;
 }
-
 .building-name,
 .building-location {
     margin: 0;
 }
+*/
 
 .upload-box {
     position: relative;
@@ -184,7 +201,6 @@
 }
 
 /* Ratings */
-
 .ratings-card {
     padding: 1.5rem;
     border-radius: 16px;
@@ -254,16 +270,13 @@
 }
 
 /* Responsive */
-
 @media (max-width: 900px) {
     .review-card {
         grid-template-columns: 1fr;
     }
-
     .pros-cons-row {
         grid-template-columns: 1fr;
     }
-
     .review-page {
         padding: 1.5rem;
     }
