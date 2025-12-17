@@ -198,33 +198,44 @@ function ReviewPage() {
                         <h3 className='ratings-title'>Rate your experience!</h3>
 
                         <RatingRow
+                            rowKey='overall'
                             label='Overall'
                             value={ratings.overall}
                             onChange={(v) => handleRatingChange("overall", v)}
                         />
+
                         <RatingRow
+                            rowKey='socialLife'
                             label='Social Life'
                             value={ratings.socialLife}
                             onChange={(v) =>
                                 handleRatingChange("socialLife", v)
                             }
                         />
+
                         <RatingRow
+                            rowKey='comfort'
                             label='Comfort'
                             value={ratings.comfort}
                             onChange={(v) => handleRatingChange("comfort", v)}
                         />
+
                         <RatingRow
+                            rowKey='safety'
                             label='Safety'
                             value={ratings.safety}
                             onChange={(v) => handleRatingChange("safety", v)}
                         />
+
                         <RatingRow
+                            rowKey='distance'
                             label='Distance'
                             value={ratings.distance}
                             onChange={(v) => handleRatingChange("distance", v)}
                         />
+
                         <RatingRow
+                            rowKey='amenities'
                             label='Amenities'
                             value={ratings.amenities}
                             onChange={(v) => handleRatingChange("amenities", v)}
@@ -236,9 +247,9 @@ function ReviewPage() {
     );
 }
 
-function RatingRow({ label, value, onChange }) {
+function RatingRow({ rowKey, label, value, onChange }) {
     return (
-        <div className='rating-row'>
+        <div className='rating-row' data-row={rowKey}>
             <span className='rating-label'>{label}</span>
             <div className='rating-bar-wrapper'>
                 <input
@@ -259,5 +270,7 @@ function RatingRow({ label, value, onChange }) {
         </div>
     );
 }
+
+
 
 export default ReviewPage;
