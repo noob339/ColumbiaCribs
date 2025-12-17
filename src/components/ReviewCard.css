@@ -1,4 +1,5 @@
 .review-card {
+    position: relative;
     background: #ffffff;
     padding: 40px;
     border-radius: 16px;
@@ -16,8 +17,8 @@
     margin-bottom: 20px;
 }
 .review-header {
-    display: flex;
-    justify-content: space-between;
+    display: block;
+    jpadding-right: 90px;
 }
 
 .review-header h1 {
@@ -105,6 +106,9 @@
 }
 
 .vote-section {
+    position: absolute;
+    top: 40px;
+    right: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
