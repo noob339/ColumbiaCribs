@@ -1,25 +1,35 @@
 :root {
-  --font-primary: -apple-system, BlinkMacSystemFont, "SF Pro Text",
-                  "SF Pro Display", "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-primary: -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "SF Pro Display", "Inter", "Segoe UI", Roboto, Helvetica, Arial,
+        sans-serif;
 
-  --color-primary: #1C2D4E;
-  --color-primary-light: #80C6E9;
-  --color-accent: #FA7700;
-  --color-accent-dark: #EE9F57;
+    --color-primary: #1c2d4e;
+    --color-primary-light: #80c6e9;
+    --color-accent: #fa7700;
+    --color-accent-dark: #ee9f57;
 }
 
 body {
-  font-family: var(--font-primary);
-  margin: 0;
-  background: #f7f9fc;
-  color: #1a1a1a;
+    font-family: var(--font-primary);
+    background: #f7f9fc;
+    color: #1a1a1a;
 }
 
-h1, h2, h3, h4 {
-  font-weight: 700;
-  letter-spacing: -0.02em;
+h1,
+h2,
+h3,
+h4 {
+    font-weight: 700;
+    letter-spacing: -0.02em;
 }
 
 p {
-  font-weight: 400;
+    font-weight: 400;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
 }

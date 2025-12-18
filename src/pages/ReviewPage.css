@@ -271,13 +271,45 @@
 
 /* Responsive */
 @media (max-width: 900px) {
-    .review-card {
+    .review-card-page {
         grid-template-columns: 1fr;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
     }
+
+    .review-right {
+        order: -1;
+    }
+
+    .review-left {
+        order: 0;
+    }
+
     .pros-cons-row {
         grid-template-columns: 1fr;
     }
+
     .review-page {
-        padding: 1.5rem;
+        padding: 1rem;
+    }
+
+    .ratings-card {
+        width: 100%;
+    }
+
+    review-page {
+        padding: 1rem;
+    }
+
+    .btnReview {
+        width: auto;
+        max-width: 320px;
+        margin: 0 auto 16px;
+        padding: 0.7rem 1.4rem;
+        font-size: 0.95rem;
+        border-radius: 999px;
+        display: block;
+        margin-bottom: 10px;
     }
 }
