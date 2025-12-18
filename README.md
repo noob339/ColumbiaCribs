@@ -5,26 +5,29 @@ https://cucribs.netlify.app/
 ColumbiaCribs is a dorm & building review app for Columbia students.
 
 Students can:
-- Browse buildings and see average ratings
-- Verify with a Columbia email
-- Submit detailed reviews + per-category ratings
+
+-   Browse buildings and see average ratings
+-   Verify with a Columbia email
+-   Submit detailed reviews + per-category ratings
 
 Repo layout:
-- **Frontend** (React + Vite): project root
-- **Backend** (Express): `server/`
-- **Database** (PostgreSQL): `columbia_cribs`
+
+-   **Frontend** (React + Vite): project root
+-   **Backend** (Express): `server/`
+-   **Database** (PostgreSQL): `columbia_cribs`
 
 ---
 
 ## Prerequisites
 
-- Node.js >= 18
-- npm
-- PostgreSQL >= 14 (includes `psql`)
+-   Node.js >= 18
+-   npm
+-   PostgreSQL >= 14 (includes `psql`)
 
 ### Install PostgreSQL / psql
 
 **macOS (Homebrew):**
+
 ```bash
 # Install Homebrew (if needed):
 # /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -35,12 +38,16 @@ psql --version
 ```
 
 **Windows (PostgreSQL Installer + PATH):**
-1) Install PostgreSQL using the official Windows installer.  
-2) Open PowerShell and run:
+
+1. Install PostgreSQL using the official Windows installer.
+2. Open PowerShell and run:
+
 ```powershell
 psql --version
 ```
+
 If `psql` is not recognized, add it to PATH (adjust `16` to your installed version), then reopen PowerShell:
+
 ```powershell
 setx PATH "$env:PATH;C:\Program Files\PostgreSQL\16\bin"
 psql --version
@@ -51,14 +58,21 @@ psql --version
 ## Tools / Libraries
 
 Tech stack:
-- React + Vite (frontend)
-- Express + Node (backend)
-- PostgreSQL (database)
-- Netlify (deployment)
+
+-   React + Vite (frontend)
+-   Express + Node (backend)
+-   PostgreSQL (database)
+-   Netlify (deployment)
 
 Notable packages:
-- react-select
-- react-icons
+
+-   react-select
+-   react-icons
+-   react-router-dom
+
+For these packages please install using
+
+npm install <name of package>
 
 ---
 
@@ -67,6 +81,8 @@ Notable packages:
 ```bash
 git clone https://github.com/noob339/ColumbiaCribs.git
 cd ColumbiaCribs
+
+We believe the repo is private, if access is needed please let us know but the zip files should work, that said you can also visit at cucribs.netlify.app
 ```
 
 ---
@@ -96,8 +112,46 @@ PGPORT=5432
 ```
 
 > Notes:
-> - `PGUSER` is your local Postgres role (often your mac username), not always `postgres`.
-> - Never commit `.env`.
+>
+> -   `PGUSER` is your local Postgres role (often your mac username), not always `postgres`.
+> -   Never commit `.env`.
+
+---
+
+## Postgres role/user setup (important)
+
+If you get errors like **"role does not exist"** or **"password authentication failed"**, your `PGUSER` / role is the issue.
+
+### 1) Check your existing Postgres roles
+
+```bash
+psql -d postgres
+\du
+```
+
+### 2) If needed, create a dedicated local user (recommended)
+
+In `psql`, run:
+
+```sql
+CREATE ROLE columbia_user WITH LOGIN PASSWORD 'your_pass';
+ALTER ROLE columbia_user CREATEDB;
+```
+
+Then update `server/.env` to:
+
+```env
+PGUSER=columbia_user
+PGPASSWORD=your_pass
+```
+
+### 3) Connect explicitly
+
+```bash
+psql -h localhost -U columbia_user -d postgres
+```
+
+---
 
 Create the database + tables (open `psql` and run):
 
@@ -153,7 +207,8 @@ npm run dev
 ```
 
 Backend runs at:
-- http://localhost:5000
+
+-   http://localhost:5000
 
 ---
 
@@ -167,96 +222,49 @@ npm run dev
 ```
 
 Frontend runs at:
-- http://localhost:5173
 
----
-
-## API / Frontend connection note
-
-The frontend expects API endpoints under `/api/...`.
-
-If your frontend is calling `/api` directly, you should have **either**:
-- a **Vite dev proxy** routing `/api` → `http://localhost:5000`, **or**
-- backend **CORS enabled** and frontend calling `http://localhost:5000/api/...`.
-
-(If you hit CORS errors, check `vite.config.js` proxy or backend CORS settings.)
-
----
-
-## App flow
-
-Frontend routes:
-- `/` – Landing page + building list
-- `/verify-email` – Enter Columbia email
-- `/enter-code` – Enter verification code
-- `/review` – Submit review
-- `/success` – Optional success screen
-
-Backend endpoints:
-- `GET /api/buildings` — all buildings with average rating + review count
-- `GET /api/buildings/:id` — single building
-- `GET /api/buildings/:id/reviews` — reviews for a building
-- `POST /api/reviews` — create a review
-- `POST /api/send-code` — validate `@columbia.edu`, generate code, store in DB, print code to server console (no real email yet)
-- `POST /api/verify-code` — verify `{ email, code }` in DB → `{ "success": true/false }`
-
-Example request body for `POST /api/reviews`:
-
-```json
-{
-  "buildingId": 1,
-  "title": "Quiet but convenient upperclass dorm",
-  "pros": "Quiet floors, big windows",
-  "cons": "Small kitchens, slow elevators",
-  "overallReview": "Full text...",
-  "ratings": {
-    "overall": 4,
-    "socialLife": 3,
-    "comfort": 4,
-    "safety": 5,
-    "distance": 4,
-    "amenities": 3
-  }
-}
-```
+-   http://localhost:5173
 
 ---
 
 ## Quick local test
 
-1) Start backend:
+1. Start backend:
+
 ```bash
 cd server
 npm run dev
 ```
 
-2) Start frontend (new terminal, from project root):
+2. Start frontend (new terminal, from project root):
+
 ```bash
 npm run dev
 ```
 
-3) Open: http://localhost:5173  
-4) Click **Review** → enter `abc123@columbia.edu`  
-5) Copy the code printed in the backend terminal, paste it on `/enter-code`  
-6) Submit a review  
-7) Confirm it saved (in `psql`):
+3. Open: http://localhost:5173
+4. Click **Review** → enter `abc123@columbia.edu`
+5. Copy the code printed in the backend terminal, paste it on `/enter-code`
+6. Submit a review
+7. Confirm it saved (in `psql`):
 
 ```sql
 SELECT * FROM reviews ORDER BY created_at DESC LIMIT 5;
 ```
 
-## Security note
+## Warning!
 
-- `server/.env` must be gitignored.
-- If credentials were ever committed, rotate them.
+-   `server/.env` must be gitignored.
 
 ---
 
 ## Scripts
 
 From root:
-- `npm run dev` — start Vite frontend
+
+-   `npm run dev` — start Vite frontend
 
 From `server/`:
-- `npm run dev` — start Express backend with nodemon
-- `npm start` — start backend without nodemon
+
+-   `npm run dev` — start Express backend with nodemon
+-   `npm start` — start backend without nodemon
