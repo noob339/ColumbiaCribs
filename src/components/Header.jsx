@@ -65,9 +65,9 @@ function Header() {
                     <Link to='/' className='menu-item'>
                         Home
                     </Link>
-                    <a href='#mission' className='menu-item'>
+                    <Link to='/OurMission' className='menu-item'>
                         Our Mission
-                    </a>
+                    </Link>
                     <Link to='/FAQs' className='menu-item'>
                         FAQs
                     </Link>
