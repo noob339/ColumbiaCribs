@@ -1,0 +1,33 @@
+.faq-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+  }
+  
+  .faq-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: #000;
+  }
+  
+  .faq-item {
+    margin-bottom: 40px;
+  }
+  
+  .faq-question {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: #000;
+  }
+  
+  .faq-answer {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #333;
+    margin: 0;
+  }
