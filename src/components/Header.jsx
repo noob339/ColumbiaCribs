@@ -68,9 +68,9 @@ function Header() {
                     <a href='#mission' className='menu-item'>
                         Our Mission
                     </a>
-                    <a href='#FAQ' className='menu-item'>
+                    <Link to='/FAQs' className='menu-item'>
                         FAQs
-                    </a>
+                    </Link>
                     <a href='#contact' className='menu-item'>
                         Contact Us
                     </a>

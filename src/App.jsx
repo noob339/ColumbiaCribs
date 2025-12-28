@@ -7,6 +7,7 @@ import ReviewPage from "./pages/ReviewPage.jsx";
 import VerifyEmail from "./pages/VerifyEmail.jsx";
 import EnterCode from "./pages/EnterCode.jsx";
 import Success from "./pages/Success.jsx";
+import FAQs from "./pages/FAQs.jsx"
 
 import BuildingPage from "./pages/BuildingPage.jsx";
 
@@ -20,6 +21,7 @@ function App() {
             <Routes>
                 <Route path='/' element={<Home />} />
                 <Route path='/buildings/:slug' element={<BuildingPage />} />
+                <Route path='/FAQs' element={<FAQs />} />
 
                 {/* New review flow */}
                 <Route path='/review' element={<ReviewPage />} />
