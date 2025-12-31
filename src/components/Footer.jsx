@@ -1,5 +1,6 @@
 import logo from "../assets/logo.svg";
 import "./Footer.css";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
 function Footer() {
   return (
@@ -15,13 +16,13 @@ function Footer() {
           <h4>Quick Links</h4>
           <ul>
             <li>
-              <a href="#home">Home</a>
+              <Link to='/'>Home</Link>
             </li>
             <li>
               <a href="#buildings">Buildings</a>
             </li>
             <li>
-              <a href="#about">About</a>
+              <Link to='/OurMission'>About Us</Link>
             </li>
             <li>
               <a href="#contact">Contact</a>
